@@ -1,16 +1,22 @@
 # fcm_sample_messaging
 
-A new Flutter project.
+## GOTO FIREBAE CONSOLE AND DO THE BELOW STEPS
 
-## Getting Started
+1. Project Setting in firebase console and click it then Go to Firebase Cloud messaging
+   on extream right side of Cloud Messaging API (Legacy) three dots click it and enable FCM
 
-This project is a starting point for a Flutter application.
+2. Now go to engage section on left side Click on messaging
 
-A few resources to get you started if this is your first Flutter project:
+3. Now You can customized the notification for testing purpose i have added below key values for testing
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+4. Create new capaingn for notification and add Notification title , Notification text ,Notification name (optional) , NEXT--> NEXT--> Scheduled Now--> in Additional Fields add key values like below
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Example Key-Value Pairs
+
+Here are some key-value pairs:
+
+| Key   | Value                                                          |
+| ----- | -------------------------------------------------------------- |
+| name  | 'john'                                                         |
+| title | 'custom title'                                                 |
+| body  | '{ "notificationType": "calltype", "key1": "", "key2": "fcm"}' |
