@@ -84,20 +84,27 @@ class _MyAppState extends State<MyApp> {
           debugPrint('name: $name');
           debugPrint('id: $id');
           debugPrint('classes: $classes');
+          Map<String, dynamic>? notibody;
+          //String notibody = message.data['body'] ?? {};
 
-          String notibody = message.data['body'] ?? {};
-          // String key1 = notibody['key1'] ?? 'defaultValue1';
-          debugPrint('new body is $notibody');
-          NotificationHandler().foregroundNotification(message);
-          await FirebaseMessaging.instance
-              .setForegroundNotificationPresentationOptions(
-                  alert: true, badge: true, sound: true);
+          try {
+            notibody = jsonDecode(message.data['body']);
+          } catch (e) {
+            debugPrint('Error parsing body string: ${e.toString()}');
+          }
 
-          // if (key1 != '') {
-          //   debugPrint('dont show notificaiton key is $key1');
-          // } else {
+          String key1 = notibody?['key1'] ?? 'defaultValue1';
+          debugPrint('new key1 is $key1');
+          if (key1 != '') {
+            debugPrint('key present dont show notification');
 
-          // }
+            //! can show a dialog something without showing notifiation for user in background it listen alway
+          } else {
+            NotificationHandler().foregroundNotification(message);
+            await FirebaseMessaging.instance
+                .setForegroundNotificationPresentationOptions(
+                    alert: true, badge: true, sound: true);
+          }
         }
       } catch (e) {
         debugPrint('Exception in onMessage:- ${e.toString()}');

@@ -10,10 +10,10 @@ class NotificationHandler {
   final localNotifications = FlutterLocalNotificationsPlugin();
 
   Future<void> onSelectNotification(String payload) async {
-    Map<dynamic, dynamic> messageData;
+    Map<dynamic, dynamic> messageData, body;
     try {
       messageData = json.decode(payload);
-      Map<dynamic, dynamic> body = jsonDecode(messageData['body']);
+      body = jsonDecode(messageData['body']);
       debugPrint('notification click body $body');
       debugPrint('notification click type ${body['notificationType']}');
       debugPrint('notification key 1 ${body['key1']}');
